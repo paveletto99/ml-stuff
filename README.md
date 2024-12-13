@@ -10,3 +10,7 @@ docker run -p 8501:8501 -it --name=tf_serving --mount type=bind,source=$(pwd)/bu
 ```
 
 docker run -p 5000:8500 -it --name=ohlcv-predictor -t ohlcv-predictor
+
+
+## TODO
+try jax instead torch https://github.com/jax-ml/jax

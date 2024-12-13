@@ -10,20 +10,29 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.pythonPath": "/usr/local/bin/python",
-        "python.formatting.provider": "black",
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+          }
+        },
+        "notebook.formatOnSave.enabled": true,
+        "notebook.codeActionsOnSave": {
+          "notebook.source.fixAll": "explicit",
+          "notebook.source.organizeImports": "explicit"
+        }
       },
       "extensions": [
-        "ms-python.python",
         "ms-toolsai.jupyter",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "charliermarsh.ruff"
       ]
     }
   },
 
   "forwardPorts": [8888],
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  "postCreateCommand": "bash ./.devcontainer/python-setup.sh",
   "remoteUser": "vscode"
 }
